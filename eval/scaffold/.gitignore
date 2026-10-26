@@ -1,0 +1,4 @@
+.direnv/
+.envrc.local
+.zig-cache/
+zig-out/
