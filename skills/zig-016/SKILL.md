@@ -44,25 +44,25 @@ branch.
 
 ## Containers
 
-| About to write                                   | Use                                         | Why                                                                                                                  |
-| ------------------------------------------------ | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| A struct holding an array and a length           | `stdx.buffer.Array(T, capacity)`            | The capacity is in the type and the storage in the value. No allocator.                                              |
-| The same over memory you already own             | `stdx.buffer.Slice(T)`                      | Same methods. The capacity is the slice length.                                                                      |
-| A buffer a transport refills and a parser drains | `stdx.buffer.Queue(T)`                      | Borrows storage. `rebase` compacts the consumed front.                                                               |
-| A list with no upper bound                       | `std.ArrayList(T)`                          | Unmanaged in 0.16; pass the allocator to each call. The managed one is `array_list.Managed`.                         |
-| A map with a fixed capacity                      | `stdx.bounded_array_hash_map.Auto(K, V, n)` | Insertion order, no allocator.                                                                                       |
-| A map that grows                                 | `stdx.swiss.Auto(K, V)`                     | Swiss table, uses an allocator, order is not insertion order.                                                        |
-| Keys kept in sorted order                        | `stdx.btree.Auto(K, V)`                     | Uses an allocator. Iteration is in key order.                                                                        |
-| A map keyed by a dense enum                      | `std.EnumMap(E, V)`                         | An array indexed by `@intFromEnum`.                                                                                  |
-| A constant lookup table                          | `stdx.static_map.Auto(K, V, .{ ... })`      | Built at compile time; a duplicate key is a compile error. `std.StaticStringMap` for string keys.                    |
-| A set                                            | `stdx.set.Auto(K, capacity)`                | A map with no values, plus set algebra.                                                                              |
-| A bitset                                         | `std.bit_set`                               |                                                                                                                      |
-| A set of indices reused every pass               | `stdx.bit_set.Scratch(capacity)`            | Reset clears a validity map, not the dirty words.                                                                    |
-| A cheap "have I seen this" test                  | `stdx.bloom.Auto(...)`                      | Reports false positives, never false negatives.                                                                      |
-| One array per struct field                       | `std.MultiArrayList(T)`                     | Fixed length: `stdx.multi_array.Array`. Runtime length without an allocator: `stdx.multi_array.Buffer(T, capacity)`. |
-| The smallest or largest item first               | `stdx.priority_queue.Custom(...)`           | A binary heap with a fixed capacity. `std.PriorityQueue` allocates.                                                  |
-| A writer over an allocated buffer                | `stdx.BoundedWriter`                        | Fails at a hard byte limit instead of growing.                                                                       |
-| Buffered stderr and stdout                       | `stdx.stdio`                                | Streams that never return an error.                                                                                  |
+| About to write                                   | Use                                             | Why                                                                                                                  |
+| ------------------------------------------------ | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| A struct holding an array and a length           | `stdx.buffer.Array(T, capacity)`                | The capacity is in the type and the storage in the value. No allocator.                                              |
+| The same over memory you already own             | `stdx.buffer.Slice(T)`                          | Same methods. The capacity is the slice length.                                                                      |
+| A buffer a transport refills and a parser drains | `stdx.buffer.Queue(T)`                          | Borrows storage. `rebase` compacts the consumed front.                                                               |
+| A list with no upper bound                       | `std.ArrayList(T)`                              | Unmanaged in 0.16; pass the allocator to each call. The managed one is `array_list.Managed`.                         |
+| A map with a fixed capacity                      | `stdx.bounded_array_hash_map.Auto(K, V, n)`     | Insertion order, no allocator.                                                                                       |
+| A map that grows                                 | `stdx.swiss.Auto(K, V)`                         | Swiss table, uses an allocator, order is not insertion order.                                                        |
+| Keys kept in sorted order                        | `stdx.btree.Auto(K, V)`, `stdx.btree.String(V)` | Uses an allocator. Iteration is in key order; `iteratorFrom` starts anywhere.                                        |
+| A map keyed by a dense enum                      | `std.EnumMap(E, V)`                             | An array indexed by `@intFromEnum`.                                                                                  |
+| A constant lookup table                          | `stdx.static_map.Auto(K, V, .{ ... })`          | Built at compile time; a duplicate key is a compile error. `std.StaticStringMap` for string keys.                    |
+| A set                                            | `stdx.set.Auto(K, capacity)`                    | A map with no values, plus set algebra.                                                                              |
+| A bitset                                         | `std.bit_set`                                   |                                                                                                                      |
+| A set of indices reused every pass               | `stdx.bit_set.Scratch(capacity)`                | Reset clears a validity map, not the dirty words.                                                                    |
+| A cheap "have I seen this" test                  | `stdx.bloom.Auto(...)`                          | Reports false positives, never false negatives.                                                                      |
+| One array per struct field                       | `std.MultiArrayList(T)`                         | Fixed length: `stdx.multi_array.Array`. Runtime length without an allocator: `stdx.multi_array.Buffer(T, capacity)`. |
+| The smallest or largest item first               | `stdx.priority_queue.Custom(...)`               | A binary heap with a fixed capacity. `std.PriorityQueue` allocates.                                                  |
+| A writer over an allocated buffer                | `stdx.BoundedWriter`                            | Fails at a hard byte limit instead of growing.                                                                       |
+| Buffered stderr and stdout                       | `stdx.stdio`                                    | Streams that never return an error.                                                                                  |
 
 ## Parsing, encoding, and the rest
 
