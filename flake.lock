@@ -10,11 +10,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1792617983,
-        "narHash": "sha256-PxlXNlB+GjV9ZQsaWo6x+zCghHJa9i4Sqzq4C2d0qsw=",
+        "lastModified": 1793015253,
+        "narHash": "sha256-03OCuvGOMmS/ONwThltoIX+8dLLkf65b4tLOmWHe23A=",
         "owner": "baskingspot",
         "repo": "nix",
-        "rev": "85bd18ccc0912c456fbda0617e121616501b1d01",
+        "rev": "647d1744db6874d7f6f6972480f8f007ab22682c",
         "type": "github"
       },
       "original": {
@@ -50,11 +50,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1792540760,
-        "narHash": "sha256-/r4XpCfXAb3J6Z/PI8cUXS468dI0mfw0L2OmT2XPG+Y=",
+        "lastModified": 1792984723,
+        "narHash": "sha256-X2A0E/tcJcBIyWw4etS5brwpD/OZQMbp1QKFj8X5dGE=",
         "owner": "mattrobenolt",
         "repo": "nixpkgs",
-        "rev": "b3173420f853c19deb5026452659b1697384e211",
+        "rev": "f1bf2166f69728376442913f28b6780f23103d3d",
         "type": "github"
       },
       "original": {
@@ -71,11 +71,11 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1792902501,
-        "narHash": "sha256-i684OZ5ajif4i83VoLkjHvOgP1g0mf/gRiCNNzRPZIo=",
+        "lastModified": 1792984723,
+        "narHash": "sha256-X2A0E/tcJcBIyWw4etS5brwpD/OZQMbp1QKFj8X5dGE=",
         "owner": "mattrobenolt",
         "repo": "nixpkgs",
-        "rev": "531fe3353364f7a5cf7a594b919e674c057d0e3c",
+        "rev": "f1bf2166f69728376442913f28b6780f23103d3d",
         "type": "github"
       },
       "original": {
