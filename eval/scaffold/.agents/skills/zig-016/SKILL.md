@@ -112,6 +112,12 @@ that change the most:
 - `const x: T = .{ ... }`, type on the left, anonymous literal on the right.
   Never the type twice.
 - `return switch (...)` and `return if (...)`. One return, flow as an expression.
+- Success and failure are an error union, never a tagged union. A syntax error
+  is `error.SyntaxError`; its position goes in a caller-owned `Diagnostics`
+  struct passed by pointer through the options, the way
+  `std.json.Scanner.enableDiagnostics` does it. An arm with `.document` and
+  `.failure`, or `.doc` and `.diagnostic`, is a Rust `Result` wearing Zig
+  clothes, and review sends it back.
 - A stateful type is its own file, named for it, holding `const Server = @This();`.
 - Alias at the top of the file. A body never says `std.mem.eql`.
 - No `usize` in a field or a local. Explicit widths, cast at the boundary.
