@@ -57,9 +57,10 @@ skills vendored under `.agents/skills/`, `eval/prompt.md` is the task, and
 
 Three rounds so far, six models, with a no-skills control in the first two.
 The results changed the skills more than once: a line telling the agent to hand
-over a fetch line instead of adding a dependency suppressed adoption in three of
-six runs, and removing it took stdx from none of six to five of six. The write-up
-is in `eval/results/`.
+over a fetch line instead of adding a dependency left half the runs with no
+dependency at all, and removing it took stdx from none of six to five of six.
+The write-up for all three rounds is in `eval/results/`, with each round's
+skills pinned to a commit or marked as an uncommitted draft.
 
 ## Working here
 

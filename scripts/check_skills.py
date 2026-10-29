@@ -3,8 +3,8 @@
 
 `skills-ref validate` covers the specification: the frontmatter fields, their
 limits, and the name matching the directory. It says nothing about whether a
-skill routes or whether it is small enough to load. Those are this repo's
-three rules:
+skill routes or whether it is small enough to load. Those are this repo's five
+rules:
 
 - The description states when the skill fires. An agent sees only the name and
   the description until it loads the body, so a description without a trigger
