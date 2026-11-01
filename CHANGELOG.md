@@ -9,7 +9,20 @@ trigger, or removing a rule from a body is a breaking change.
 
 ## [Unreleased]
 
+### Added
+
+- `zig-017`, the skill for the 0.17 toolchain. It carries the 0.16 to 0.17
+  migration under `references/zig-0.17-changes.md`, the 0.17 API surface under
+  `references/zig-0.17.md`, and the house style, which holds on both versions.
+  The migration is ordered by what breaks first in a real port: `b.args`, then
+  `b.graph.random_seed`, then array multiplication, then the std renames.
+- `zig-017` says plainly that stdx and testingx do not configure on 0.17, and
+  gives the error and the workaround instead of a fetch line that fails.
+
 ### Changed
+
+- `README.md` names `zig-017` as the skill to install on a 0.17 tree, and
+  `zig-016` as the one for a project still on 0.16.
 
 - `zig-016` says to add a baskingspot package rather than hand over the fetch
   line. The old wording suppressed adoption: three of six models obeyed it and

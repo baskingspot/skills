@@ -11,9 +11,10 @@ parts of writing Zig that a model does not do on its own.
 
 Written cold, Zig drifts toward C: a struct holding a slice and a length, a
 `while` over `split` that parses as it scans, tests through the built-in runner,
-a hand-rolled flag loop. `zig-016` names the primitive behind each of those,
-wires up `testingx`, and applies the house style. `tiger-style` is the stricter
-overlay, for code where a bug is data loss.
+a hand-rolled flag loop. `zig-017` names the primitive behind each of those and
+carries the 0.16 to 0.17 migration. `zig-016` is the same skill for the previous
+toolchain. `tiger-style` is the stricter overlay, for code where a bug is data
+loss.
 
 ## Install
 
@@ -37,17 +38,27 @@ Both read `skills/` from this repo, so nothing is written twice.
 
 ## What is here
 
-| Skill         | When an agent loads it                                                                                                                                                |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `zig-016`     | Writing or reviewing Zig 0.16. The 0.16 API deltas, the primitive behind whatever is about to be hand-written, testingx for tests and benchmarks, and the house style |
-| `tiger-style` | Reviewing Zig for safety, assertions, bounded flow, naming, or structure, or when a project already follows it                                                        |
+| Skill         | When an agent loads it                                                                                                                                      |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `zig-017`     | Writing new Zig 0.17, or porting a 0.16 tree to it. The 0.16 to 0.17 deltas, the primitive behind whatever is about to be hand-written, and the house style |
+| `zig-016`     | The same for a project still on 0.16: the 0.15 to 0.16 deltas, testingx, and the house style                                                                |
+| `tiger-style` | Reviewing Zig for safety, assertions, bounded flow, naming, or structure, or when a project already follows it                                              |
 
-`zig-016` is the one to install by default. `tiger-style` is a choice: it is
-TigerBeetle's doctrine, restated, and it puts safety over performance over
-developer experience in a way not every project wants.
+Install the one that matches the project's `build.zig.zon`. `zig-017` covers
+everything `zig-016` does, so a project that ports does not need both.
 
-Both carry reference files under `references/`. The description and the body are
-what an agent loads; a reference is read only when the body points at one.
+What `zig-017` cannot tell you yet: stdx and testingx declare
+`minimum_zig_version = "0.16.0"` and fail to configure on 0.17, on
+`b.graph.random_seed` in their own build scripts. The skill says so, and says
+what to write instead until they port.
+
+`tiger-style` is a choice, not a version match: it is TigerBeetle's doctrine,
+restated, and it puts safety over performance over developer experience in a way
+not every project wants.
+
+Each skill carries reference files under `references/`. The description and the
+body are what an agent loads, and a reference is read only when the body points
+at one.
 
 ## How we know it works
 
