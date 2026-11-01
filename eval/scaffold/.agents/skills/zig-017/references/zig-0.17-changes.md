@@ -311,7 +311,14 @@ std.lang.Optimize.safe
 
 The tags are `debug`, `safe`, `fast`, `small`. `Optimize.runtimeSafety` is
 preferred over `std.debug.runtime_safety`, because a call site gets knowledge of
-its own module.
+its own module. The old tag names are declared as values of the same enum, so a
+comparison against `Optimize.ReleaseFast` still compiles. Use the new tags; do
+not spend time rewriting call sites that work.
+
+`std.DoublyLinkedList` is not generic and has not been since before 0.16. The
+node holds `prev` and `next` and no payload, so `@fieldParentPtr` recovers the
+containing struct. If a `pop` call site fails to build, the rename to `popLast`
+is the whole fix.
 
 ### `@typeInfo` is struct-of-arrays
 
@@ -499,8 +506,8 @@ with no replacement.
 
 ## Where the notes are wrong
 
-Three claims in the 0.17.0 release notes do not match the compiler. Check them
-again on a later patch release.
+Two claims in the 0.17.0 release notes do not match the compiler, and one
+removal is missing from them. Check all three again on a later patch release.
 
 **`std.lang.Optimize` is not a breaking rename.** The notes say `==` and `!=`
 stop working with the old names. `Debug`, `ReleaseSafe`, `ReleaseFast`, and
@@ -514,8 +521,10 @@ pub const ReleaseFast: @This() = .fast;
 Use the new tags in new code. Old code that compiles is not wrong.
 
 **`std.fmt.allocPrint` is deprecated, not moved.** It still exists and forwards
-to `Allocator.print`. The notes' "moved" phrasing reads as a removal.
+to `Allocator.print`. The notes' "moved" heading reads as a removal.
 
-**`DoublyLinkedList` is not generic in either release.** It is an intrusive
-node with `prev` and `next` and no payload, so `@fieldParentPtr` gets the
-containing struct. That is 0.16 behaviour too. Only `pop` became `popLast`.
+**`b.graph.random_seed` is gone and the notes never say so.** The section on
+passthru arguments covers `b.args`, and nothing covers the seed. The `--seed`
+build flag survives for shuffling dependency traversal, and a build script
+cannot read it. Every package that passes a seed to its test runner fails to
+configure, which is the first error most ports hit.
