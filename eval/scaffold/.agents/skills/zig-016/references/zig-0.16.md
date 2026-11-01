@@ -115,7 +115,7 @@ you did not account for".
 
 ## `std.mem` renames — "index of" is now "find"
 
-`indexOf` → `find`, `indexOfScalar` → `findScalar`, `indexOfAny` → `findAny`, `lastIndexOf` → `findLast`, `indexOfPos` → `findPosLinear` family. Emitting `std.mem.indexOf*` is a compile error now.
+`indexOf` → `find`, `indexOfScalar` → `findScalar`, `indexOfAny` → `findAny`, `lastIndexOf` → `findLast`, `indexOfPos` → `findPosLinear` family. The old names survive as `pub const indexOf = find`, marked deprecated, so `std.mem.indexOf` still compiles. A green build is not evidence that the call site is current; grep for the old names.
 
 ## Other 0.16 breaks, one line each
 

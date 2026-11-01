@@ -23,6 +23,9 @@ trigger, or removing a rule from a body is a breaking change.
 
 - `README.md` names `zig-017` as the skill to install on a 0.17 tree, and
   `zig-016` as the one for a project still on 0.16.
+- `zig-016` no longer says `std.mem.indexOf` is a compile error. It is a
+  deprecated alias for `find` on both 0.16 and 0.17, verified against each
+  toolchain, so the migration advice is a grep rather than a build failure.
 
 - `zig-016` says to add a baskingspot package rather than hand over the fetch
   line. The old wording suppressed adoption: three of six models obeyed it and
