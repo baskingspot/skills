@@ -487,8 +487,9 @@ with no replacement.
   parse on the command line and map onto the new ones, so a script that passes
   `ReleaseSafe` keeps working. The enum tags are the lowercase form only.
 - `--print-configuration` writes the resolved graph as ZON on stdout.
-- `--listen=-` serves the build server protocol. ZLS is the first consumer and
-  is broken on 0.17 in the meantime.
+- `--listen=-` serves the build server protocol. ZLS 0.17.0, released
+  2026-10-19, is the first consumer. It restores most build integration
+  through this protocol. Some build integration regressions remain in 0.17.0.
 - `zig build -fincremental --watch` is usable for most `x86_64-linux` projects.
   It also runs on aarch64, where the incremental path is less exercised.
 - `zig objdump` is new, for object and archive inspection. `--snapshot` redacts
