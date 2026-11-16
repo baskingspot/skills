@@ -25,7 +25,7 @@ behind it. Fix the script first.
    `if (b.args) |args| run.addArgs(args)`.
 3. Source: replace `a ** b` with `@splat`. This is the largest count in a real
    tree, and the error never says "removed". It says `binary operator '*' has
-whitespace on one side, but not the other`.
+   whitespace on one side, but not the other`.
 4. Source: `@cImport`, `errdefer |e|`, `void{}`, and `@bitCast` on `extern`
    types.
 5. `std` names: `std.builtin` to `std.lang`, `bit_set` renames, `Optimize` tags,
