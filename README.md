@@ -5,9 +5,11 @@
   </picture>
 </h1>
 
-Agent skills for Zig. A skill is a folder of instructions that an agent loads
-when a task matches its description, and nothing until then. These carry the
-parts of writing Zig that a model does not do on its own.
+Agent skills for Zig, so a model writes it the way we do.
+
+A skill is a folder of instructions that an agent loads when a task matches its
+description, and nothing until then. These carry the parts of writing Zig that
+a model does not do on its own.
 
 Written cold, Zig drifts toward C: a struct holding a slice and a length, a
 `while` over `split` that parses as it scans, tests through the built-in runner,
