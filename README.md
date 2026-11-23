@@ -93,3 +93,9 @@ that has the skill installed; the body loads only when the skill fires.
 MIT. See `LICENSE`. The files in `docs/static/` are the exception: the
 baskingspot name, mark, and logos are all rights reserved. See
 `docs/static/LICENSE`.
+
+## How it's made
+
+Built with LLM assistance. [How, in detail](https://github.com/baskingspot/.github/blob/main/docs/AI.md).
+
+<a href="https://github.com/baskingspot"><img src="https://raw.githubusercontent.com/baskingspot/.github/main/brand/assets/badge.svg" alt="baskingspot" height="24"></a>
